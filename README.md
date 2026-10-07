@@ -12,7 +12,7 @@ Firmware berjalan di ESP32, mengendalikan dua modul nRF24 secara paralel (HSPI +
 
 | No | Komponen | Qty | Fungsi | Estimasi Harga |
 |----|----------|-----|--------|----------------|
-| 1 | **ESP32 DevKit v4 (WROOM-32)** | 1 | Microcontroller utama | Rp 60rb – 110rb |
+| 1 | **ESP32 DevKit v4 (38-Pin, CP2102)** | 1 | Microcontroller utama (wajib 38-pin, hindari 30-pin) | Rp 60rb – 110rb |
 | 2 | **EBYTE E01-ML01DP5** (nRF24L01+ + PA, 20 dBm, 100 mW) | 2 | Transceiver 2.4 GHz + Power Amplifier | Rp 50rb – 120rb /pcs |
 | 3 | **Kapasitor elektrolit 100µF / 16V** | 2 | Bulk reservoir untuk spike TX PA (wajib untuk EBYTE) | Rp 500 – 2rb /pcs |
 | 4 | **Kapasitor keramik 100nF (0.1µF)** | 2 | HF decoupling di pin VCC nRF24 | Rp 200 – 500 /pcs |
@@ -32,9 +32,12 @@ Firmware berjalan di ESP32, mengendalikan dua modul nRF24 secara paralel (HSPI +
 
 **Total minimum:** sekitar **Rp 180rb – 380rb** (di luar OLED dan antena upgrade).
 
+> ⚠️ **Catatan Penting Pemilihan ESP32:**
+> Wajib pilih varian **38-Pin CP2102**. Jangan beli varian **30-Pin (CH340C / CH9102X)** karena pada board 30-pin, pin **GPIO 16** (dipakai untuk CE Modul 1) dan **GPIO 17** (dipakai untuk SCL OLED) tidak tersedia di header pin.
+
 ### Link pembelian (Shopee.co.id)
 
-- ESP32 DevKit v4 → https://shopee.co.id/search?keyword=esp32%20devkit%20v4%20wroom-32
+- ESP32 DevKit v4 (38-Pin CP2102) → https://shopee.co.id/search?keyword=esp32%20devkit%20v4%2038%20pin%20cp2102
 - **EBYTE E01-ML01DP5** → https://shopee.co.id/NRF24L01-Ultra-Long-Range-2100M-E01-ML01DP5-Ebyte-20dBm-2-4Ghz-PA-LNA-i.2178321.8027887735
 - Kapasitor elektrolit 100µF 16V → https://shopee.co.id/search?keyword=kapasitor%20elektrolit%20100uf%2016v
 - Kapasitor keramik 100nF → https://shopee.co.id/search?keyword=kapasitor%20keramik%20100nf%20ceramic

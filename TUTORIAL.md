@@ -10,7 +10,7 @@ Tutorial ini untuk pemula. Ikuti urutan langkah dari atas ke bawah. Jangan skip.
 
 | Komponen | Jumlah | Beli Dimana |
 |---|---|---|
-| ESP32 DevKit v4 (WROOM-32) | 1 | [Shopee](https://shopee.co.id/search?keyword=esp32%20devkit%20v4%20wroom-32) |
+| ESP32 DevKit v4 (38-Pin, CP2102) | 1 | [Shopee (Pilih 38-pin CP2102)](https://shopee.co.id/search?keyword=esp32%20devkit%20v4%2038%20pin%20cp2102) |
 | EBYTE E01-ML01DP5 (20 dBm) | 2 | [Shopee](https://shopee.co.id/NRF24L01-Ultra-Long-Range-2100M-E01-ML01DP5-Ebyte-20dBm-2-4Ghz-PA-LNA-i.2178321.8027887735) |
 | Kapasitor elektrolit 100µF | 2 | [Shopee](https://shopee.co.id/search?keyword=kapasitor%20elektrolit%20100uf) |
 | Kapasitor keramik 100nF | 2 | [Shopee](https://shopee.co.id/search?keyword=kapasitor%20keramik%20100nf) |
