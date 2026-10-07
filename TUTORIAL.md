@@ -26,6 +26,13 @@ Tutorial ini untuk pemula. Ikuti urutan langkah dari atas ke bawah. Jangan skip.
 | Breadboard 830 titik | 1 | Rakit tanpa solder |
 | Regulator AMS1117-3.3 | 1 | Kalau power tidak stabil |
 
+### Alat rakit
+
+| Alat | Untuk Apa | Beli Dimana |
+|---|---|---|
+| Solder iron 30-40W + timah | Solder kapasitor ke modul (8 titik, 10 menit) | [Shopee](https://shopee.co.id/search?keyword=solder%20iron%2030w) |
+| Multimeter | Cek voltage 3.3V, continuity (opsional tapi disarankan) | [Shopee](https://shopee.co.id/search?keyword=multimeter%20digital%20murah) |
+
 > **Penting soal kabel USB:** Banyak kabel USB murah cuma untuk charging, tidak bisa transfer data. Test: colok ke HP/komputer, kalau tidak muncul sebagai device → kabelnya cuma charging. Beli yang tulisan "data sync" atau "data cable".
 
 ---
@@ -39,7 +46,90 @@ Alat yang dibutuhkan untuk merakit:
 3. **Komputer/Laptop** — Windows, Mac, atau Linux
 4. **Koneksi internet** — untuk download software
 
-Kalau tidak punya solder iron, bisa pakai breadboard dulu untuk testing. Tapi kapasitor **harus** solder langsung ke pin modul EBYTE — jumper wire ke breadboard tidak stabil untuk current TX yang tinggi.
+---
+
+## Soal Solder: Kenapa Perlu, Berapa Banyak, dan Alternatifnya
+
+### Kenapa perlu solder?
+
+Solder cuma dipakai untuk **satu hal**: memasang kapasitor 100µF + 100nF ke pin VCC/GND modul EBYTE. Itu saja.
+
+**Alasan teknisnya:**
+
+EBYTE menarik ~130 mA per modul saat transmit (2 modul = ~260 mA). Lonjakan arus ini butuh kapasitor yang terpasang **sesingkat mungkin** ke pin modul — idealnya < 5 mm.
+
+Kalau kapasitor dipasang di breadboard dengan jumper wire di tengahnya:
+- Terlalu banyak resistance + inductance di jalur
+- Voltage drop saat TX burst → modul brownout → reset
+- Hasilnya: jamming berhenti acak, modul kadang OK kadang MISSING
+
+Solder langsung ke pin modul = jarak < 5 mm = stabil.
+
+### Berapa banyak titik solder?
+
+Sangat sedikit:
+
+| Pekerjaan | Titik solder | Waktu |
+|---|---|---|
+| Kapasitor 100µF → VCC + GND (modul 1) | 2 titik | ~2 menit |
+| Kapasitor 100nF → VCC + GND (modul 1) | 2 titik | ~1 menit |
+| Kapasitor 100µF → VCC + GND (modul 2) | 2 titik | ~2 menit |
+| Kapasitor 100nF → VCC + GND (modul 2) | 2 titik | ~1 menit |
+| **Total** | **8 titik** | **~10 menit** |
+
+Wiring ESP32 ↔ modul ↔ OLED **tidak perlu solder sama sekali** — semua pakai jumper wire female-female yang dicolok ke breadboard.
+
+### Yang TIDAK perlu solder:
+
+- ❌ Wiring ESP32 ↔ modul EBYTE → jumper wire female-female
+- ❌ Wiring ESP32 ↔ OLED → jumper wire
+- ❌ Antena → screw/SMA connector, tinggal pasang
+- ❌ ESP32 ke breadboard → tinggal ditancapkan
+
+### Beli solder iron (kalau belum punya)
+
+Cukup solder iron murah untuk pemula:
+
+| Item | Harga | Catatan |
+|---|---|---|
+| Solder iron 30-40W | Rp 15rb – 40rb | Model pensil biasa cukup |
+| Timah solder 0.8-1mm | Rp 5rb – 15rb | Beli yang sudah ada flux core |
+| Solder stand/holder | Rp 5rb – 15rb | Opsional tapi aman |
+
+Link Shopee:
+- Solder iron → https://shopee.co.id/search?keyword=solder%20iron%2030w%20pistol
+- Timah solder → https://shopee.co.id/search?keyword=timah%20solder%200.8mm%20flux
+
+> Total biaya tambahan ~Rp 25rb – 70rb. Ini investasi yang worth it — hasil rakitan jauh lebih reliable.
+
+### Alternatif tanpa solder (untuk testing saja)
+
+Kalau tidak mau beli solder iron, ada 2 opsi — tapi pahami konsekuensinya:
+
+**Opsi 1: Kapasitor di breadboard dekat modul**
+
+1. Masukkan pin VCC/GND modul ke breadboard
+2. Pasang kapasitor di breadboard tepat sebelah pin VCC/GND
+3. Pakai jumper wire **sangat pendek** (< 2 cm)
+
+Hasil: **mungkin** jalan untuk init dan testing ringan, tapi kemungkinan besar brownout saat jamming aktif (TX burst ~130 mA). Tidak predictable.
+
+**Opsi 2: Beli modul yang sudah pre-soldered dengan kapasitor**
+
+Beberapa toko di Shopee menjual modul nRF24L01+ PA+LNA yang sudah diberi kapasitor. Cari keyword "nrf24l01 pa lna kapasitor" atau "nrf24l01 ready". Jarang ada untuk EBYTE E01-ML01DP5 — biasanya hanya modul clone generik.
+
+Hasil: lebih baik dari opsi 1, tapi tetap tidak sebaik solder langsung.
+
+> **Rekomendasi:** Beli solder iron murah. 8 titik solder, 10 menit kerja, hasil reliable. Alternatif tanpa solder = hasil tidak predictable — modul bisa working saat init tapi reset saat jamming aktif.
+
+### Kalau tetap mau tanpa solder
+
+Kita masih bisa jalan — buat modul dengan breadboard, lakukan test `status` dan `scan` dulu. Kalau keduanya OK dan tidak ada brownout, ada kemungkinan setup kamu cukup stabil. Tapi kalau muncul gejala berikut saat jamming → kapasitor harus solder:
+
+- Modul kadang OK kadang MISSING
+- Jamming berhenti sendiri setelah beberapa detik/menit
+- Sweeps count berhenti bertambah padahal status masih active
+- ESP32 reboot sendiri (brownout message di serial)
 
 ---
 
