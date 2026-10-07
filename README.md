@@ -13,13 +13,13 @@ Firmware berjalan di ESP32, mengendalikan dua modul nRF24 secara paralel (HSPI +
 | No | Komponen | Qty | Fungsi | Estimasi Harga |
 |----|----------|-----|--------|----------------|
 | 1 | **ESP32 DevKit v4 (38-Pin, CP2102)** | 1 | Microcontroller utama (wajib 38-pin, hindari 30-pin) | Rp 60rb – 110rb |
-| 2 | **EBYTE E01-ML01DP5** (nRF24L01+ + PA, 20 dBm, 100 mW) | 2 | Transceiver 2.4 GHz + Power Amplifier | Rp 50rb – 120rb /pcs |
-| 3 | **Kapasitor elektrolit 100µF / 16V** | 2 | Bulk reservoir untuk spike TX PA (wajib untuk EBYTE) | Rp 500 – 2rb /pcs |
-| 4 | **Kapasitor keramik 100nF (0.1µF)** | 2 | HF decoupling di pin VCC nRF24 | Rp 200 – 500 /pcs |
+| 2 | **EBYTE E01-ML01DP5** (nRF24L01+ + PA, 20 dBm, 100 mW) | 1–2 | Transceiver 2.4 GHz + PA (1 pcs sudah berfungsi, 2 pcs optimal) | Rp 50rb – 160rb /pcs |
+| 3 | **Kapasitor Elektrolit (Elco) 100µF / 16V atau 25V** | 1–2 | Bulk reservoir spike TX (tabung silinder hitam/biru berkaki dua) | Rp 500 – 2rb /pcs |
+| 4 | **Kapasitor Keramik 100nF (0.1µF) Kode '104'** | 1–2 | HF decoupling di pin VCC nRF24 (bulat pipih kuning angka 104) | Rp 200 – 500 /pcs |
 | 5 | **Jumper wire female-female** | 1 set | Wiring SPI + I2C | Rp 5rb – 15rb |
 | 6 | **Kabel micro-USB / USB-C** (data-capable) | 1 | Power + flashing | Rp 8rb – 25rb |
-| 7 | **Breadboard 830 titik** (opsional) | 1 | Prototyping | Rp 15rb – 30rb |
-| 8 | **Antena 2.4 GHz SMA omni 3dBi** | 2 | Antena untuk modul EBYTE | Rp 5rb – 15rb /pcs |
+| 7 | **Antena 2.4 GHz SMA omni 3dBi** | 1–2 | *Tidak perlu beli jika modul EBYTE sudah ada bonus antena bawaan!* | Rp 5rb – 15rb /pcs |
+| 8 | **Breadboard 830 titik** (opsional) | 1 | Prototyping | Rp 15rb – 30rb |
 | 9 | **OLED SSD1306 0.96" 128×64 I2C** (opsional) | 1 | Display status real-time | Rp 15rb – 30rb |
 
 **Opsional upgrade:**
@@ -30,17 +30,22 @@ Firmware berjalan di ESP32, mengendalikan dua modul nRF24 secara paralel (HSPI +
 | 11 | **Regulator 3.3V eksternal (AMS1117-3.3)** | Kalau brownout tetap muncul | Rp 2rb |
 | 12 | **Enclosure plastik** | Proteksi fisik | Rp 20rb – 60rb |
 
-**Total minimum:** sekitar **Rp 180rb – 380rb** (di luar OLED dan antena upgrade).
+**Total minimum (1 Modul):** sekitar **Rp 150rb – 230rb**.
 
-> ⚠️ **Catatan Penting Pemilihan ESP32:**
-> Wajib pilih varian **38-Pin CP2102**. Jangan beli varian **30-Pin (CH340C / CH9102X)** karena pada board 30-pin, pin **GPIO 16** (dipakai untuk CE Modul 1) dan **GPIO 17** (dipakai untuk SCL OLED) tidak tersedia di header pin.
+> ⚠️ **Catatan Kritis Pemilihan Komponen:**
+> 1. **ESP32:** Wajib pilih varian **38-Pin CP2102**. Jangan beli varian **30-Pin (CH340C / CH9102X)** karena pin **GPIO 16** (CE Modul 1) dan **GPIO 17** (SCL OLED) tidak ada di header pin.
+> 2. **Modul EBYTE:** Tidak wajib 2 modul. Anda bisa mulai dengan **1 modul saja** di HSPI (CW, BLE ADV, dan Scanner sudah 100% normal).
+> 3. **Antena:** Periksa foto/deskripsi toko EBYTE. Jika sudah *include* antena SMA hitam, **jangan beli antena lagi**.
+> 4. **Bentuk Kapasitor:**
+>    - *Elco 100µF:* Tabung silinder kecil (kaki panjang = +, kaki pendek strip minus = -).
+>    - *Keramik 100nF:* Bulat pipih kancing warna kuning/cokelat berkode angka **104** (non-polar).
 
 ### Link pembelian (Shopee.co.id)
 
 - ESP32 DevKit v4 (38-Pin CP2102) → https://shopee.co.id/search?keyword=esp32%20devkit%20v4%2038%20pin%20cp2102
-- **EBYTE E01-ML01DP5** → https://shopee.co.id/NRF24L01-Ultra-Long-Range-2100M-E01-ML01DP5-Ebyte-20dBm-2-4Ghz-PA-LNA-i.2178321.8027887735
-- Kapasitor elektrolit 100µF 16V → https://shopee.co.id/search?keyword=kapasitor%20elektrolit%20100uf%2016v
-- Kapasitor keramik 100nF → https://shopee.co.id/search?keyword=kapasitor%20keramik%20100nf%20ceramic
+- **EBYTE E01-ML01DP5** → https://shopee.co.id/search?keyword=E01-ML01DP5%20ebyte%2020dbm
+- Kapasitor elektrolit (Elco) 100µF 16V → https://shopee.co.id/search?keyword=elco%20100uf%2016v
+- Kapasitor keramik 100nF (Kode 104) → https://shopee.co.id/search?keyword=kapasitor%20keramik%20104
 - Jumper female-female → https://shopee.co.id/search?keyword=jumper%20wire%20female%20female
 - Breadboard 830 → https://shopee.co.id/search?keyword=breadboard%20830%20point
 - AMS1117-3.3 → https://shopee.co.id/search?keyword=ams1117-3.3%20regulator

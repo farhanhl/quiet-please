@@ -11,12 +11,12 @@ Tutorial ini untuk pemula. Ikuti urutan langkah dari atas ke bawah. Jangan skip.
 | Komponen | Jumlah | Beli Dimana |
 |---|---|---|
 | ESP32 DevKit v4 (38-Pin, CP2102) | 1 | [Shopee (Pilih 38-pin CP2102)](https://shopee.co.id/search?keyword=esp32%20devkit%20v4%2038%20pin%20cp2102) |
-| EBYTE E01-ML01DP5 (20 dBm) | 2 | [Shopee](https://shopee.co.id/NRF24L01-Ultra-Long-Range-2100M-E01-ML01DP5-Ebyte-20dBm-2-4Ghz-PA-LNA-i.2178321.8027887735) |
-| Kapasitor elektrolit 100µF | 2 | [Shopee](https://shopee.co.id/search?keyword=kapasitor%20elektrolit%20100uf) |
-| Kapasitor keramik 100nF | 2 | [Shopee](https://shopee.co.id/search?keyword=kapasitor%20keramik%20100nf) |
+| EBYTE E01-ML01DP5 (20 dBm) | 1–2 | [Shopee (Bisa 1 atau 2 pcs)](https://shopee.co.id/search?keyword=E01-ML01DP5%20ebyte%2020dbm) |
+| Kapasitor Elektrolit (Elco) 100µF 16V/25V | 1–2 | [Shopee (Tabung silinder)](https://shopee.co.id/search?keyword=elco%20100uf%2016v) |
+| Kapasitor Keramik 100nF (Kode '104') | 1–2 | [Shopee (Bulat pipih kuning)](https://shopee.co.id/search?keyword=kapasitor%20keramik%20104) |
 | Jumper wire female-female | 1 set | [Shopee](https://shopee.co.id/search?keyword=jumper%20wire%20female%20female) |
 | Kabel USB (data, bukan cuma charging) | 1 | [Shopee](https://shopee.co.id/search?keyword=kabel%20micro%20usb%20data) |
-| Antena 2.4 GHz SMA | 2 | [Shopee](https://shopee.co.id/search?keyword=antena%202.4ghz%20sma%20omni) |
+| Antena 2.4 GHz SMA (Cek Toko EBYTE) | 1–2 | [Shopee (*Lewati jika modul EBYTE sudah ada bonus antena*)](https://shopee.co.id/search?keyword=antena%202.4ghz%20sma%20omni) |
 
 ### Opsional (bagus punya tapi tidak wajib)
 
