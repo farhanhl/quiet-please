@@ -34,7 +34,9 @@ Firmware berjalan di ESP32, mengendalikan dua modul nRF24 secara paralel (HSPI +
 
 > ⚠️ **Catatan Kritis Pemilihan Komponen:**
 > 1. **ESP32:** Wajib pilih varian **38-Pin CP2102**. Jangan beli varian **30-Pin (CH340C / CH9102X)** karena pin **GPIO 16** (CE Modul 1) dan **GPIO 17** (SCL OLED) tidak ada di header pin.
-> 2. **Modul EBYTE:** Tidak wajib 2 modul. Anda bisa mulai dengan **1 modul saja** di HSPI (CW, BLE ADV, dan Scanner sudah 100% normal).
+> 2. **Modul EBYTE (1 Modul vs 2 Modul):**
+>    - **1 Modul (HSPI):** Cukup untuk pemula / budget hemat (~Rp 150rb-200rb). Mode **CW Carrier**, **BLE Advertising Denial**, dan **Radar Scanner** bekerja 100% sempurna. Konsumsi arus ramah (~130 mA). Namun untuk jamming Bluetooth Classic (musik headset), frekuensi disapu serial sehingga musik hanya tersendat/lag.
+>    - **2 Modul (HSPI + VSPI):** Direkomendasikan untuk efektivitas maksimal. Modul 1 dan 2 menyapu rentang kanal bawah (Ch 2–41) dan atas (Ch 42–80) secara paralel di 2 core ESP32. Kerapatan tabrakan paket sinyal 2x lipat, memutuskan audio streaming Bluetooth seketika (*instant drop*). Membutuhkan arus ~260 mA dan wajib kapasitor 100µF.
 > 3. **Antena:** Periksa foto/deskripsi toko EBYTE. Jika sudah *include* antena SMA hitam, **jangan beli antena lagi**.
 > 4. **Bentuk Kapasitor:**
 >    - *Elco 100µF:* Tabung silinder kecil (kaki panjang = +, kaki pendek strip minus = -).

@@ -35,6 +35,21 @@ Tutorial ini untuk pemula. Ikuti urutan langkah dari atas ke bawah. Jangan skip.
 
 > **Penting soal kabel USB:** Banyak kabel USB murah cuma untuk charging, tidak bisa transfer data. Test: colok ke HP/komputer, kalau tidak muncul sebagai device → kabelnya cuma charging. Beli yang tulisan "data sync" atau "data cable".
 
+### ⚖️ Perbedaan Memakai 1 Modul vs 2 Modul EBYTE
+
+Apakah wajib beli 2 modul? **Tidak wajib!** Anda bisa mulai dengan 1 modul EBYTE terlebih dahulu.
+
+| Fitur / Pengujian | 1 Modul EBYTE (HSPI) | 2 Modul EBYTE (HSPI + VSPI) |
+|---|---|---|
+| **Bluetooth Classic (Headset/TWS)** | Musik hanya lag/kresek-kresek (sapuan 79 kanal serial) | **Instant Disconnect** (sapuan kanal bawah & atas paralel) |
+| **BLE Advertising Deny (Earbuds/Watch)** | **Sangat Efektif** (hanya 3 kanal 37, 38, 39) | **100% Kedap Sinyal** (semua kanal dibanjiri simultan) |
+| **Continuous Wave (CW Carrier)** | **100% Identik** (Output 20 dBm / 100 mW penuh) | Bisa pancar 2 frekuensi berbeda |
+| **RF Spectrum Scanner** | **100% Identik** (hanya butuh 1 modul RX) | Identik (modul ke-2 tidak dipakai saat scan) |
+| **Konsumsi Arus** | Ringan (~130 mA) - aman untuk regulator ESP32 | Tinggi (~260 mA) - butuh powerbank/adaptor 2A & elco 100µF |
+| **Estimasi Budget DIY** | Rp 150rb – 220rb | Rp 300rb – 380rb |
+
+> **Rekomendasi:** Jika baru pertama kali mencoba, beli **1 modul EBYTE saja dulu**. Bila di kemudian hari ingin performa putus total untuk Bluetooth audio headset, Anda tinggal beli 1 modul lagi dan colok ke jalur VSPI tanpa perlu flashing ulang firmware!
+
 ---
 
 ## Langkah 2: Siapkan Alat
